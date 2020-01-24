@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(name: params[:session][:name])
     if user
-      session[:id] = user.id
+      autologin(user)
       redirect_to user
     else
+      flash.now[:danger] = 'User not found'
       render 'new'
     end
   end

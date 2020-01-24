@@ -14,9 +14,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      autologin(@user)
       redirect_to @user
-
     else
+      flash.now[:danger] = @user.errors.full_messages
       render 'new'
     end
   end

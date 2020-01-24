@@ -1,7 +1,8 @@
 <h1>Events</h1>
 
 <% @events.each do |event| %>
-  <h3><%= event.title %></h3>
+  <h3><%= link_to event.title, event %></h3>
   <p><%=  event.date %></p>
+  <%= link_to "I'm attending", attendings_path(:event => { :event_id => event.id }), method: :post %>
   <br>
 <% end %>
