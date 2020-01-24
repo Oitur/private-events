@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
+  scope :past, -> { where("date < ?", Time.now) }
+  scope :upcoming, -> { where("date > ?", Time.now) }
+
   validates :title, presence: true, length: { minimum: 5, maximum: 255 }
   validates_associated :creator
   validate :after_hour_validation

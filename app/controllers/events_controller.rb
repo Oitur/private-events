@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @event = creator.events.build(event_params)
     if @event.save
       flash[:success] = 'Event created'
+      Attending.create(attend_event_id: @event.id, attendee_id: session[:id])
       redirect_to @event
     else
       flash.now[:danger] = "Error: #{@event.errors.full_messages}!"
