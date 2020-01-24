@@ -7,6 +7,8 @@ class Event < ApplicationRecord
 
   belongs_to :creator, class_name: 'User'
 
+  has_many :attendings, foreign_key: :attend_event
+  has_many :attendees, through: :attendings
   private
 
   def after_hour_validation
