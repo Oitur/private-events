@@ -10,6 +10,6 @@ module SessionsHelper
 
   def autologin(user)
     session[:id] = user.id
-    flash[:success] = "Successfully logged in"
+    flash[:success] = 'Successfully logged in'
   end
 end

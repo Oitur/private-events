@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-  scope :past, -> { where("date < ?", Time.now) }
-  scope :upcoming, -> { where("date > ?", Time.now) }
+  scope :past, -> { where('date < ?', Time.now) }
+  scope :upcoming, -> { where('date > ?', Time.now) }
 
   validates :title, presence: true, length: { minimum: 5, maximum: 255 }
   validates_associated :creator
@@ -12,6 +12,7 @@ class Event < ApplicationRecord
 
   has_many :attendings, foreign_key: :attend_event
   has_many :attendees, through: :attendings
+
   private
 
   def after_hour_validation
