@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
@@ -5,8 +7,10 @@ RSpec.describe Event, type: :model do
     describe '#new' do
       e = Event.new
       it 'should be valid with valid data' do
+        User.create(name: 'Bob')
         e.title = 'Not empty'
         e.date = Time.now + 4000
+        e.creator_id = User.last.id
         expect(e.valid?).to be_truthy
       end
 

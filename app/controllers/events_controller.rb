@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   before_action :logged_in?, only: [:create]
   def show
@@ -17,7 +19,7 @@ class EventsController < ApplicationController
     else
       flash.now[:danger] = "Error: #{@event.errors.full_messages}!"
       render 'new'
-    end 
+    end
   end
 
   def index

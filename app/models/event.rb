@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Event < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5, maximum: 255 }
   validates_associated :creator
