@@ -1,0 +1,11 @@
+<h1><%= @user.name %>'s Events</h1>
+<h2>My events:</h2>
+<%= render partial: 'layouts/event', collection: @user.events.sort_by {|event| event.date }, locals: {index: false} %>
+
+<h2>Upcoming events:</h2>
+
+<%= render partial: 'layouts/event', collection: @user.attend_events.upcoming.sort_by {|event| event.date }, locals: {index: false} %>
+
+<h2>Past events: </h2>
+
+<%= render partial: 'layouts/event', collection: @user.attend_events.past.sort_by {|event| event.date }, locals: {index: false}%>

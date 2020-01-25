@@ -1,0 +1,3 @@
+<% flash.each do |type, message| %>
+  <%= content_tag(:div, message, style: type.to_s == 'danger' ? 'color:red;' : 'color:blue;') %>
+<% end %>

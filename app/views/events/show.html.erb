@@ -1,0 +1,9 @@
+<h1><%= @event.title %></h1>
+<h2>Event by: <%= @event.creator.name %></h2>
+<h2> When: <%= @event.date %> </h2>
+<br>
+<h2>Attending: </h2>
+<% @event.attendees.each do |attendee| %>
+  <p style="font-weight:bold;"><%= attendee.name %></p>
+  <hr>
+<% end %>
