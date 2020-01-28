@@ -2,5 +2,7 @@
 <p><%= event.date %></p>
 <% if index && !already_attending?(event) %>
   <%= link_to "I'm attending", attendings_path(:event => { :event_id => event.id }), method: :post %>
+<% elsif index %>
+  <%= link_to "Cancel Invitation", attending_path(attending_id(event)), method: :delete %>
 <% end %>
 <hr>

@@ -6,4 +6,8 @@ module AttendingsHelper
 
     true
   end
+
+  def attending_id(event)
+    User.find(session[:id]).attendings.find_by(attend_event: event.id)
+  end
 end

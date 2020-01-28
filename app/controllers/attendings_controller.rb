@@ -9,6 +9,11 @@ class AttendingsController < ApplicationController
     redirect_to root_url
   end
 
+  def destroy
+    Attending.destroy(params[:id])
+    redirect_to events_path
+  end
+
   private
 
   def attending_params

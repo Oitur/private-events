@@ -4,7 +4,7 @@
 
 <h2>Upcoming events:</h2>
 
-<%= render partial: 'layouts/event', collection: @user.attend_events.upcoming.sort_by {|event| event.date }, locals: {index: false} %>
+<%= render partial: 'layouts/event', collection: @user.attend_events.upcoming.sort_by {|event| event.date }, locals: {index: true} %>
 
 <h2>Past events: </h2>
 
